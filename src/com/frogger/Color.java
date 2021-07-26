@@ -2,7 +2,7 @@ package com.frogger;
 import java.awt.*;
 import javax.swing.*;
 //i didn't want to create two more classes
-// but it wasn't working for mi to create them
+// but it wasn't working for me to create them
 // in the same class. i will work again with this
 
 public class Color extends JPanel {

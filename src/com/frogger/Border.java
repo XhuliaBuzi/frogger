@@ -5,7 +5,7 @@ import java.awt.event.KeyAdapter;
 
 public class Border extends JFrame {
     //i didn't want to create two more classes
-// but it wasn't working for mi to create them
+// but it wasn't working for me to create them
 // in the same class. i will work again with this.
 Object object;
 Color color;
