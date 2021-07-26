@@ -16,23 +16,9 @@ public class Game extends JPanel{
     public int[] riverSize = new int[10];
 
 
-
-
     public Game() {
 
     }
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 }

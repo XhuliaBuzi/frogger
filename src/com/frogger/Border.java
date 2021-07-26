@@ -21,39 +21,5 @@ Color color;
 
         }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//        this.setSize(400,400);
-//        this.setDefaultCloseOperation(EXIT_ON_CLOSE);
-//this.setLocationRelativeTo(null);
-//
-//        this.setVisible(true);
-//    }
-//
-//    public void PaintComponent(Graphics g){
-//
-//        Graphics2D g2d=(Graphics2D) g;
-//        g2d.setColor(new Color(1234567));
-//        g2d.drawLine(0,0,40,40);
     }
 
