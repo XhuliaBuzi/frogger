@@ -1,4 +1,4 @@
 package com.frogger;
 
-public class Car {
+public class Car extends Object{
 }

@@ -1,4 +1,4 @@
 package com.frogger;
 
-public class Logs {
+public class Logs extends Object{
 }
