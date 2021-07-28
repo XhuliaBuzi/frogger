@@ -4,11 +4,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-
-
 public class MyBoard extends JFrame implements KeyListener {
     JLabel label;
-
     MyBoard() {
         setSize(500, 500);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -19,14 +16,11 @@ public class MyBoard extends JFrame implements KeyListener {
         label.setBackground(Color.red);
         label.setOpaque(true);
         this.add(label);
-
         this.setVisible(true);
     }
-
     @Override
     public void keyTyped(KeyEvent e) {
     }
-
     @Override
     public void keyPressed(KeyEvent e) {
         switch (e.getKeyCode()) {
@@ -48,7 +42,6 @@ public class MyBoard extends JFrame implements KeyListener {
             }
         }
     }
-
     @Override
     public void keyReleased(KeyEvent e) {
     }
