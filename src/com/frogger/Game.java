@@ -3,7 +3,6 @@ package com.frogger;
 import javax.swing.*;
 import java.awt.*;
 
-
 public class Game extends JPanel {
     public int rightsize = 800;
     public int leftsize = 800;
@@ -45,9 +44,6 @@ public void setupMovment(){
     movment.setBounds(this.xloc,this.yloc,width,height);
 movment.setIcon(this.i);
 }
-    public Game() {
+
 
     }
-
-
-}
