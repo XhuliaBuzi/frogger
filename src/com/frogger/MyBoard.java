@@ -8,7 +8,6 @@ public class MyBoard extends JFrame implements KeyListener {
     Frog frog2 = new Frog ();
     JLabel Frod3 = frog2.frog;
     Car car = new Car ();
-
     Logs logs = new Logs ();
     JPanel panel = new JPanel ();
 
