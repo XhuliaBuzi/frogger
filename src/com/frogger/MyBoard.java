@@ -7,15 +7,11 @@ import java.awt.event.KeyListener;
 public class MyBoard extends JFrame implements KeyListener {
     Frog frog2 = new Frog ();
     JLabel Frod3 = frog2.frog;
-    Car car = new Car ();
-    Logs logs = new Logs ();
-    JPanel panel = new JPanel ();
-
     MyBoard() {
         setSize (800, 1000);
         setResizable (false);
         setDefaultCloseOperation (JFrame.EXIT_ON_CLOSE);
-        this.add (Frod3);
+//        this.add (Frod3);
 
         this.addKeyListener (this);
 

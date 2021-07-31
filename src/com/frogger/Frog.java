@@ -2,8 +2,7 @@ package com.frogger;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
+
 
 
 public class Frog extends JPanel {
