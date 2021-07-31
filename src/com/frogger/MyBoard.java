@@ -1,4 +1,5 @@
 package com.frogger;
+
 import javax.swing.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
@@ -6,10 +7,11 @@ import java.awt.event.KeyListener;
 public class MyBoard extends JFrame implements KeyListener {
     Frog frog2 = new Frog ();
     JLabel Frod3 = frog2.frog;
-    Car car=new Car ();
+    Car car = new Car ();
 
-    Logs logs=new Logs ();
-JPanel panel=new JPanel ();
+    Logs logs = new Logs ();
+    JPanel panel = new JPanel ();
+
     MyBoard() {
         setSize (800, 1000);
         setResizable (false);
@@ -31,6 +33,7 @@ JPanel panel=new JPanel ();
     public void keyTyped(KeyEvent e) {
 
     }
+
     @Override
     public void keyPressed(KeyEvent e) {
         if (Frod3.getX () == -50) {
@@ -62,6 +65,7 @@ JPanel panel=new JPanel ();
 
         }
     }
+
     @Override
     public void keyReleased(KeyEvent e) {
     }
