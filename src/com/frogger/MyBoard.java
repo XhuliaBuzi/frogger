@@ -8,15 +8,13 @@ public class MyBoard extends JFrame implements KeyListener {
     Frog frog2 = new Frog ();
     JLabel Frod3 = frog2.frog;
     Game game = new Game ();
-Car car=new Car ();
-Logs logs=new Logs ();
     MyBoard() {
         setSize (800, 1000);
         setResizable (false);
         setDefaultCloseOperation (JFrame.EXIT_ON_CLOSE);
  game.add(frog2.frog);
 
- this.add (logs);
+
 
         this.addKeyListener (this);
 
