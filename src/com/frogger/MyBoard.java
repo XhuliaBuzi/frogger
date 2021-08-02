@@ -7,12 +7,17 @@ import java.awt.event.KeyListener;
 public class MyBoard extends JFrame implements KeyListener {
     Frog frog2 = new Frog ();
     JLabel Frod3 = frog2.frog;
+    Game game = new Game ();
+Car car=new Car ();
+Logs logs=new Logs ();
     MyBoard() {
         setSize (800, 1000);
         setResizable (false);
         setDefaultCloseOperation (JFrame.EXIT_ON_CLOSE);
-//        this.add (Frod3);
+ game.add(frog2.frog);
 
+ this.add (car);
+        this.setVisible (true);
         this.addKeyListener (this);
 
     }
@@ -22,6 +27,7 @@ public class MyBoard extends JFrame implements KeyListener {
      * See the class description for {@link KeyEvent} for a definition of
      * a key typed event.
      *
+
      * @param e the event to be processed
      */
     @Override
@@ -63,6 +69,7 @@ public class MyBoard extends JFrame implements KeyListener {
 
     @Override
     public void keyReleased(KeyEvent e) {
+        System.out.println (Frod3.getLocation ());
     }
 
 
