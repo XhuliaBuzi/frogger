@@ -16,8 +16,8 @@ Logs logs=new Logs ();
         setDefaultCloseOperation (JFrame.EXIT_ON_CLOSE);
  game.add(frog2.frog);
 
- this.add (car);
-        this.setVisible (true);
+ this.add (logs);
+
         this.addKeyListener (this);
 
     }
