@@ -4,11 +4,11 @@ import javax.swing.*;
 import java.awt.*;
 
 
-
 public class Frog extends JPanel {
     JLabel frog;
     ImageIcon imageIcon;
-    int x = 14, y =5;
+    int x = 14, y = 5;
+
     Frog() {
         imageIcon = new ImageIcon ("f.png");
         Image image = imageIcon.getImage ();
