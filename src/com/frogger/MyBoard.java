@@ -5,19 +5,18 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 public class MyBoard extends JFrame implements KeyListener {
-    Frog frog2 = new Frog ();
+
+    Frog frog2 = new Frog();
     JLabel Frod3 = frog2.frog;
-    Game game = new Game ();
+    Game game = new Game();
+
     MyBoard() {
-        setSize (800, 1000);
-        setResizable (false);
-        setDefaultCloseOperation (JFrame.EXIT_ON_CLOSE);
- game.add(frog2.frog);
+        setSize(800, 1000);
+        setResizable(false);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        game.add(frog2.frog);
 
-
-
-        this.addKeyListener (this);
-
+        this.addKeyListener(this);
     }
 
     /**
@@ -25,7 +24,6 @@ public class MyBoard extends JFrame implements KeyListener {
      * See the class description for {@link KeyEvent} for a definition of
      * a key typed event.
      *
-
      * @param e the event to be processed
      */
     @Override
@@ -35,40 +33,37 @@ public class MyBoard extends JFrame implements KeyListener {
 
     @Override
     public void keyPressed(KeyEvent e) {
-        if (Frod3.getX () == -50) {
-            Frod3.setLocation (Frod3.getX () + 50, Frod3.getY ());
-        } else if (Frod3.getY () == -50) {
-            Frod3.setLocation (Frod3.getX (), Frod3.getY () + 50);
-        } else if (Frod3.getX () == 850) {
-            Frod3.setLocation (Frod3.getX () - 50, Frod3.getY ());
-        } else if (Frod3.getY () == 1050) {
-            Frod3.setLocation (Frod3.getX (), Frod3.getY () - 50);
+        if (Frod3.getX() == -50) {
+            Frod3.setLocation(Frod3.getX() + 50, Frod3.getY());
+        } else if (Frod3.getY() == -50) {
+            Frod3.setLocation(Frod3.getX(), Frod3.getY() + 50);
+        } else if (Frod3.getX() == 850) {
+            Frod3.setLocation(Frod3.getX() - 50, Frod3.getY());
+        } else if (Frod3.getY() == 1050) {
+            Frod3.setLocation(Frod3.getX(), Frod3.getY() - 50);
         }
-        switch (e.getKeyCode ()) {
+        switch (e.getKeyCode()) {
             case 37: {
-                Frod3.setLocation (Frod3.getX () - 50, Frod3.getY ());
+                Frod3.setLocation(Frod3.getX() - 50, Frod3.getY());
                 break;
             }
             case 38: {
-                Frod3.setLocation (Frod3.getX (), Frod3.getY () - 50);
+                Frod3.setLocation(Frod3.getX(), Frod3.getY() - 50);
                 break;
             }
             case 39: {
-                Frod3.setLocation (Frod3.getX () + 50, Frod3.getY ());
+                Frod3.setLocation(Frod3.getX() + 50, Frod3.getY());
                 break;
             }
             case 40: {
-                Frod3.setLocation (Frod3.getX (), Frod3.getY () + 50);
+                Frod3.setLocation(Frod3.getX(), Frod3.getY() + 50);
                 break;
             }
-
         }
     }
 
     @Override
     public void keyReleased(KeyEvent e) {
-        System.out.println (Frod3.getLocation ());
+        System.out.println(Frod3.getLocation());
     }
-
-
 }

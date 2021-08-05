@@ -6,50 +6,50 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class Logs extends JPanel implements ActionListener {
+
     ImageIcon imageIcon;
     Timer t;
+
     int width = 120, anInt = 120 - 70, height = 80;
-    int x = 678, y = 250, velX = 1,  right = 23;
+    int x = 678, y = 250, velX = 1, right = 23;
 
     int x2 = x - (anInt * 2), x3 = x - (anInt * 3), x4 = x - (anInt * 4), x7 = x - (anInt * 7), x8 = x - (anInt * 8), x9 = x - (anInt * 9), x10 = x - (anInt * 10), x13 = x - (anInt * 13), x14 = x - (anInt * 14);
-
     int right2 = right + (anInt * 2), right4 = right + (anInt * 4), right5 = right + (anInt * 5), right9 = right + (anInt * 9), right10 = right + (anInt * 10), right12 = right + (anInt * 12), right15 = right + (anInt * 15);
 
     public void paintComponent(Graphics g) {
-        super.paintComponent (g);
+        super.paintComponent(g);
         Graphics2D graphics2D = (Graphics2D) g;
-        imageIcon = new ImageIcon ("logs.gif");
-        Image image1 = imageIcon.getImage ().getScaledInstance (width, height, Image.SCALE_SMOOTH);
-        ImageIcon Logs_ImageIcon = new ImageIcon (image1);
-        Image Logs_Image1 = Logs_ImageIcon.getImage ();
- //First Logs
-        graphics2D.drawImage (Logs_Image1, x - anInt, y, this);
-        graphics2D.drawImage (Logs_Image1, x3, y, this);
-        graphics2D.drawImage (Logs_Image1, x4, y, this);
-        graphics2D.drawImage (Logs_Image1, x7, y, this);
-        graphics2D.drawImage (Logs_Image1, x10, y, this);
-        graphics2D.drawImage (Logs_Image1, x8, y, this);
-        graphics2D.drawImage (Logs_Image1, x13, y, this);
-//Second Logs
-        graphics2D.drawImage (Logs_Image1, right2, y + 100, this);
-        graphics2D.drawImage (Logs_Image1, right4, y + 100, this);
-        graphics2D.drawImage (Logs_Image1, right5, y + 100, this);
-        graphics2D.drawImage (Logs_Image1, right9, y + 100, this);
-        graphics2D.drawImage (Logs_Image1, right10 + 50, y + 100, this);
-        graphics2D.drawImage (Logs_Image1, right12, y + 100, this);
-        graphics2D.drawImage (Logs_Image1, right15, y + 100, this);
-// Third Logs
-        graphics2D.drawImage (Logs_Image1, x, y + 200, this);
-        graphics2D.drawImage (Logs_Image1, x2, y + 200, this);
-        graphics2D.drawImage (Logs_Image1, x4, y + 200, this);
-        graphics2D.drawImage (Logs_Image1, x7, y + 200, this);
-        graphics2D.drawImage (Logs_Image1, x9, y + 200, this);
-        graphics2D.drawImage (Logs_Image1, x14, y + 200, this);
+        imageIcon = new ImageIcon("logs.gif");
+        Image image1 = imageIcon.getImage().getScaledInstance(width, height, Image.SCALE_SMOOTH);
+        ImageIcon Logs_ImageIcon = new ImageIcon(image1);
+        Image Logs_Image1 = Logs_ImageIcon.getImage();
+        // First Logs
+        graphics2D.drawImage(Logs_Image1, x - anInt, y, this);
+        graphics2D.drawImage(Logs_Image1, x3, y, this);
+        graphics2D.drawImage(Logs_Image1, x4, y, this);
+        graphics2D.drawImage(Logs_Image1, x7, y, this);
+        graphics2D.drawImage(Logs_Image1, x10, y, this);
+        graphics2D.drawImage(Logs_Image1, x8, y, this);
+        graphics2D.drawImage(Logs_Image1, x13, y, this);
+        // Second Logs
+        graphics2D.drawImage(Logs_Image1, right2, y + 100, this);
+        graphics2D.drawImage(Logs_Image1, right4, y + 100, this);
+        graphics2D.drawImage(Logs_Image1, right5, y + 100, this);
+        graphics2D.drawImage(Logs_Image1, right9, y + 100, this);
+        graphics2D.drawImage(Logs_Image1, right10 + 50, y + 100, this);
+        graphics2D.drawImage(Logs_Image1, right12, y + 100, this);
+        graphics2D.drawImage(Logs_Image1, right15, y + 100, this);
+        // Third Logs
+        graphics2D.drawImage(Logs_Image1, x, y + 200, this);
+        graphics2D.drawImage(Logs_Image1, x2, y + 200, this);
+        graphics2D.drawImage(Logs_Image1, x4, y + 200, this);
+        graphics2D.drawImage(Logs_Image1, x7, y + 200, this);
+        graphics2D.drawImage(Logs_Image1, x9, y + 200, this);
+        graphics2D.drawImage(Logs_Image1, x14, y + 200, this);
         //Timer for starting the game.
-        t = new Timer (500, this);
-        t.start ();
+        t = new Timer(500, this);
+        t.start();
     }
-
 
     /**
      * Invoked when an action occurs.
@@ -112,6 +112,6 @@ public class Logs extends JPanel implements ActionListener {
         right10 -= velX;
         right12 -= velX;
         right15 -= velX;
-        repaint ();
+        repaint();
     }
 }
