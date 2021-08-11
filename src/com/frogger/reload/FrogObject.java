@@ -10,17 +10,16 @@ public class FrogObject extends JLabel {
     private final int height = 60;
     private int speed = 1;
     private String direction = "R";
-    private Class objectType;
 
-    public FrogObject(int y, Class objectType) {
+    public FrogObject(int y) {
         speed = getSpeed();
-        this.setBounds(0, y, width, height);
-        this.objectType = objectType;
+        this.setSize(width, height);
+        this.setLocation(0, y);
         setDirection();
     }
 
-    private void setIcon(String carImage) {
-        ImageIcon imageIcon = new ImageIcon(carImage);
+    private void setIcon(String iconImage) {
+        ImageIcon imageIcon = new ImageIcon(iconImage);
         Image image = imageIcon.getImage();
         Image i = image.getScaledInstance(width, height, Image.SCALE_SMOOTH);
         imageIcon = new ImageIcon(i);
@@ -28,22 +27,26 @@ public class FrogObject extends JLabel {
     }
 
     private void setDirection() {
+
         Random random = new Random();
+
         if (random.nextInt(2) == 0) {
+
             this.setLocation(0, getY());
             direction = "R";
 
-            if (objectType.equals(FrogCar.class)) {
+            if (this instanceof FrogCar) {
                 setIcon("car.png");
             } else {
                 setIcon("logs.gif");
             }
 
         } else {
+
             this.setLocation(800, getY());
             direction = "L";
 
-            if (objectType.equals(FrogCar.class)) {
+            if (this instanceof FrogCar) {
                 setIcon("bus.gif");
             } else {
                 setIcon("logs.gif");
@@ -65,9 +68,7 @@ public class FrogObject extends JLabel {
         int y = getY();
 
         if (direction.equals("R")) {
-
             int x = getX() + speed;
-
             if (x <= 800) {
                 setLocation(x, y);
             } else {
@@ -76,9 +77,7 @@ public class FrogObject extends JLabel {
                 setDirection();
             }
         } else {
-
             int x = getX() - speed;
-
             if (x >= 0) {
                 setLocation(x, y);
             } else {

@@ -31,7 +31,7 @@ public class FrogBoard extends JPanel {
             ArrayList<FrogCar> extraCars = new ArrayList<>();
 
             for (int j = 0; j < 3; j++) {
-                FrogCar extraCar = new FrogCar((height - 60) - (i * 60), FrogCar.class);
+                FrogCar extraCar = new FrogCar((height - 160) - (i * 60));
                 extraCars.add(extraCar);
                 this.add(extraCar);
             }
@@ -43,7 +43,7 @@ public class FrogBoard extends JPanel {
     private void addLogs(int totalLogs) {
         // FOR Loop
         for (int i = 1; i <= totalLogs; i++) {
-            FrogLog log = new FrogLog((i * 60), FrogLog.class);
+            FrogLog log = new FrogLog((i * 60));
             logs.add(log);
             this.add(log);
         }

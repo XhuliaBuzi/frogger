@@ -9,32 +9,33 @@ import java.util.concurrent.TimeUnit;
 
 public class FrogGame extends JFrame implements KeyListener {
 
-    private FrogBoard board = new FrogBoard();
+    private final FrogBoard board = new FrogBoard();
 
     public FrogGame() throws HeadlessException {
         this.setSize(800, 1000);
         this.setResizable(false);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.add(board);
-
         this.addKeyListener(this);
-
         this.setVisible(true);
     }
 
     public void start() throws InterruptedException {
+
+        int delay = 100;
+
         // Infinite Loop
         while (true) {
             // FOR-EACH Loop
             for (ArrayList<FrogCar> cars : board.getCars()) {
                 for (FrogCar car : cars) {
-                    TimeUnit.MILLISECONDS.sleep(5);
+                    TimeUnit.MICROSECONDS.sleep(delay);
                     car.move();
                 }
-                for (FrogLog log : board.getLogs()) {
-                    TimeUnit.MILLISECONDS.sleep(5);
-                    log.move();
-                }
+            }
+            for (FrogLog log : board.getLogs()) {
+                TimeUnit.MICROSECONDS.sleep(delay);
+                log.move();
             }
         }
     }
