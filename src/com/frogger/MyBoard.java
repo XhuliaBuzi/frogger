@@ -6,14 +6,19 @@ import java.awt.event.KeyListener;
 
 public class MyBoard extends JFrame implements KeyListener {
 
+    Car car = new Car();
+    Logs logs = new Logs();
+
     Frog frog2 = new Frog();
     JLabel Frod3 = frog2.frog;
     Game game = new Game();
 
     MyBoard() {
-        setSize(800, 1000);
-        setResizable(false);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setSize(800, 1000);
+        this.setResizable(false);
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        this.add(game);
         game.add(frog2.frog);
 
         this.addKeyListener(this);

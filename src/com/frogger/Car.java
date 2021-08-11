@@ -5,7 +5,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class Car extends JPanel implements ActionListener {
+public class Car extends JLabel implements ActionListener {
 
     Timer timer_Car;
     int width_car = 80, height_car = 60, width_bus = 150, height_bus = 100;

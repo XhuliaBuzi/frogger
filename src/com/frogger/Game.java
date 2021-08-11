@@ -7,6 +7,11 @@ public class Game extends JPanel {
 
     Image image;
 
+    public Game() {
+        this.setSize(800, 1000);
+        //this.setLayout(null);
+    }
+
     public void paintComponent(Graphics g) {
 
         super.paintComponent(g);
