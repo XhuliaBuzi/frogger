@@ -24,9 +24,7 @@ public class MyGame extends JFrame implements KeyListener {
 
         int delay = 100;
 
-        // Infinite Loop
         while (true) {
-            // FOR-EACH Loop
             for (Car car : board.getCars ()) {
                 TimeUnit.MICROSECONDS.sleep (delay);
                 car.move ();
