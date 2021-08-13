@@ -52,8 +52,6 @@ public class MyGame extends JFrame implements KeyListener {
     }
 
     @Override
-    public void keyReleased(KeyEvent e) {
-        System.out.println (board.getFrog ().getLocation ());
-    }
+    public void keyReleased(KeyEvent e) { }
 }
 
