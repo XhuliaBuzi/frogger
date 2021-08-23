@@ -1,22 +1,18 @@
 package com.frogger;
-
 import javax.swing.*;
 import java.awt.*;
 import java.util.Random;
-
 public class Object extends JLabel {
     private int speed = 1, x, diference_ForLogs;
-    private String direction;
-
+    private final String direction;
     public Object(String image, int x, int y, int width, int height, String d, int diference_ForLogs1) {
         this.direction = d;
         this.diference_ForLogs = diference_ForLogs1;
         this.setSize (width, height);
         this.setLocation (x, y);
         setIcon (image);
-        getx ();
+        getSpeed();
     }
-
     private void setIcon(String iconImage) {
         ImageIcon imageIcon = new ImageIcon (iconImage);
         Image image = imageIcon.getImage ();
@@ -24,12 +20,7 @@ public class Object extends JLabel {
         imageIcon = new ImageIcon (i);
         this.setIcon (imageIcon);
     }
-
-    private int getSpeed() {
-        return 600;
-    }
-
-    private void getx() {
+    private void getSpeed() {
         Random random = new Random ();
         int vleX = random.nextInt (10);
         if (vleX == 0) {
@@ -42,7 +33,6 @@ public class Object extends JLabel {
         }
 
     }
-
     public void move() {
         int y = getY ();
         if (direction.equals ("R")) {
@@ -51,7 +41,7 @@ public class Object extends JLabel {
                 setLocation (x, y);
             } else {
                 setLocation (0, y);
-                getx ();
+                getSpeed();
             }
         } else {
             x -= 1;
@@ -59,7 +49,7 @@ public class Object extends JLabel {
                 setLocation (x, y);
             } else {
                 setLocation (800, y);
-                getx ();
+                getSpeed();
             }
         }
     }

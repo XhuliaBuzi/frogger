@@ -3,17 +3,13 @@ package com.frogger;
 import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
-import java.util.Random;
-
 public class Board extends JPanel {
     private final int height = 1000;
     private final Frog frog = new Frog ();
     private final ArrayList<Car> cars = new ArrayList<> ();
     private final ArrayList<Logs> logs = new ArrayList<> ();
-
     private final ArrayList<Bus> buses = new ArrayList<> ();
-    Image image;
-
+    private Image image;
     public Board() {
         this.setSize (800, height);
         this.setBackground (Color.black);
@@ -24,7 +20,6 @@ public class Board extends JPanel {
         addBus (6);
         this.setVisible (true);
     }
-
     private void addCars(int totalCars) {
         // FOR Loop
         for (int i = 1; i <= totalCars; i++) {
@@ -33,7 +28,6 @@ public class Board extends JPanel {
             this.add (car);
         }
     }
-
     private void addBus(int totalBus) {
         // FOR Loop
         for (int i = 1; i <= totalBus; i++) {
