@@ -6,17 +6,31 @@ import java.awt.*;
 public class Frog extends JLabel {
     private int width = 55;
     private int height = 55;
-
+    private int x = 450;
+    private int y = 900;
+    private Logs attached=null,speed;
     Frog() {
         ImageIcon imageIcon = new ImageIcon("f.png");
-        Image image = imageIcon.getImage();
-        Image i = image.getScaledInstance(width, height, Image.SCALE_SMOOTH);
-        imageIcon = new ImageIcon(i);
-        setIcon(imageIcon);
-        this.setBounds(450, 900, width, height);
+        Image image = imageIcon.getImage().getScaledInstance(width, height, Image.SCALE_SMOOTH);
+        setIcon(new ImageIcon(image));
+        this.setBounds(x, y, width, height);
+
+    }
+    public void restart(){
+        setLocation(450, 900);
+    }
+
+    public void attach(Logs logs){
+    attached=logs;
+    }
+    public void update(){
+        if(attached!=null){
+            this.x+=attached.getSpeed();
+        }
     }
 
     public void jump(int keyCode) {
+        update();
         int x = getX();
         int y = getY();
         switch (keyCode) {
@@ -39,10 +53,11 @@ public class Frog extends JLabel {
                     setLocation(x, y);
                 }
             } else if (y == 133) {
-                setLocation(450, 900);
+                restart();
             } else {
                 setLocation(x, y);
             }
         }
     }
+
 }

@@ -12,7 +12,6 @@ public class Board extends JPanel {
     private Image image;
     public Board() {
         this.setSize (800, height);
-        this.setBackground (Color.black);
         this.setLayout (null);
         this.add (frog);
         addCars (6);
@@ -23,7 +22,7 @@ public class Board extends JPanel {
     private void addCars(int totalCars) {
         // FOR Loop
         for (int i = 1; i <= totalCars; i++) {
-            Car car = new Car ();
+            Car car=new Car() ;
             cars.add (car);
             this.add (car);
         }
@@ -36,7 +35,6 @@ public class Board extends JPanel {
             this.add (bus);
         }
     }
-
     private void addLogs(int totalLogs, String temp) {
 
         // FOR Loop
@@ -44,6 +42,7 @@ public class Board extends JPanel {
         for (int j = 0; j < 3; j++) {
 
             for (int i = 1; i <= totalLogs; i++) {
+
                 Logs log = new Logs (y_logs, temp);
                 logs.add (log);
                 this.add (log);
@@ -66,21 +65,18 @@ public class Board extends JPanel {
         image = new ImageIcon (i).getImage ();
         graphics2D.drawImage (image, 0, 0, null);
     }
-
     public Frog getFrog() {
         return frog;
     }
-
     public ArrayList<Car> getCars() {
         return cars;
     }
-
     public ArrayList<Logs> getLogs() {
         return logs;
     }
-
     public ArrayList<Bus> getBuses() {
         return buses;
     }
+
 
 }
