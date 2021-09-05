@@ -1,16 +1,6 @@
 package com.frogger;
-
-import java.awt.*;
-
 public class Logs extends Object {
-    int y1;
-    public Logs(int y, String direction) {
-        super ("logs.gif", 750, y, 140, 100, direction, 40);
-        this.y1=y;
-
+    public Logs(int x,int y, String direction) {
+        super ("log1.png", x, y, 140, 70, direction, 10);
     }
-    public Rectangle bondsLogs(){
-        return (new Rectangle(750,y1,140,100));
-    }
-
 }

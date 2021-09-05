@@ -1,8 +1,7 @@
 package com.frogger;
-
 public class Car extends Object {
-    public Car() {
-        super ("car.png", 800, 740, 100, 70, "R", 0);
+    public Car(int y) {
+        super ("car.png", 800, y, 100, 70, "R", 0);
     }
 }
 
