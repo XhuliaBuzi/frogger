@@ -1,0 +1,211 @@
+/* Frogger frontend styling. Dark theme, single centered column (max-width
+   460px) that works for both desktop and mobile - the canvas below scales
+   to fit via aspect-ratio while game.js always renders at a fixed 800x1000
+   internal resolution. */
+
+:root {
+    color-scheme: dark;
+    --bg: #14181f;
+    --panel: #1d232c;
+    --accent: #6ee06e;
+    --text: #e8ecf1;
+    --muted: #8b93a1;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg);
+    color: var(--text);
+    font-family: "Segoe UI", Roboto, system-ui, sans-serif;
+    padding: 24px 12px;
+}
+
+.wrap {
+    width: 100%;
+    max-width: 460px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+h1 {
+    margin: 0;
+    letter-spacing: 1px;
+}
+
+.subtitle {
+    margin: 0;
+    color: var(--muted);
+    font-size: 0.85rem;
+    text-align: center;
+}
+
+/* Score / Level / Lives / connection status / view-toggle row. */
+.hud {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--panel);
+    padding: 8px 14px;
+    border-radius: 10px;
+    font-size: 0.95rem;
+}
+
+.conn-status {
+    font-size: 0.75rem;
+    color: var(--muted);
+}
+
+/* Positioning context for the absolutely-positioned reward toast and
+   game-over overlay, which both sit on top of the canvas. */
+.canvas-wrap {
+    position: relative;
+    width: 100%;
+}
+
+canvas {
+    width: 100%;
+    height: auto;
+    /* Matches the canvas's own width/height attributes (800x1000) in
+       index.html, so it scales down without letterboxing or distortion. */
+    aspect-ratio: 800 / 1000;
+    display: block;
+    border-radius: 10px;
+    background: #2a2f38;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+/* "+1" / "+1 Life" toast, shown briefly by game.js when state.reward is set. */
+.reward-toast {
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, -12px);
+    background: rgba(20, 24, 31, 0.9);
+    border: 1px solid var(--accent);
+    color: var(--accent);
+    font-weight: 700;
+    font-size: 1.1rem;
+    padding: 6px 18px;
+    border-radius: 20px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.reward-toast.show {
+    opacity: 1;
+    transform: translate(-50%, 0);
+}
+
+/* Game-over screen, toggled via the .hidden class by game.js based on
+   state.status from the server. */
+.overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(10, 12, 16, 0.82);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    border-radius: 10px;
+    text-align: center;
+    padding: 20px;
+}
+
+.overlay.hidden {
+    display: none;
+}
+
+#overlayMessage {
+    font-size: 1.4rem;
+    font-weight: 600;
+}
+
+#restartBtn {
+    background: var(--accent);
+    border: none;
+    color: #0d130d;
+    font-weight: 600;
+    padding: 10px 22px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.95rem;
+}
+
+#restartBtn:hover {
+    filter: brightness(1.08);
+}
+
+.controls-hint {
+    color: var(--muted);
+    font-size: 0.8rem;
+    text-align: center;
+    margin: 4px 0 0;
+}
+
+/* On-screen D-pad container. user-select:none stops long-press text
+   selection from interfering with rapid tapping on mobile. */
+.dpad {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    margin-top: 6px;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+.dpad-row {
+    display: flex;
+    gap: 6px;
+}
+
+.dpad-btn {
+    width: 56px;
+    height: 56px;
+    border-radius: 12px;
+    border: 1px solid #2c333d;
+    background: var(--panel);
+    color: var(--text);
+    font-size: 1.4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* Tells the browser not to wait to see if this is a double-tap/zoom
+       gesture before firing touch events - cuts input latency on mobile. */
+    touch-action: manipulation;
+    cursor: pointer;
+}
+
+.dpad-btn:active {
+    background: var(--accent);
+    color: #0d130d;
+}
+
+/* Cycles TOP-down / Frog's-eye / Behind camera modes - see game.js's viewMode. */
+.view-toggle {
+    background: #2a3140;
+    border: 1px solid #3a4353;
+    color: var(--text);
+    font-size: 0.78rem;
+    padding: 5px 10px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.view-toggle:active {
+    background: var(--accent);
+    color: #0d130d;
+}

@@ -1,0 +1,69 @@
+<!--
+  Single static page for the Frogger frontend. All behavior lives in
+  game.js, which is a pure renderer for state pushed over a WebSocket by
+  the Java backend (see GameEngine.java) - this file just declares the DOM
+  elements game.js looks up by id/class, and pulls in Three.js from a CDN
+  (see the authoring notes for published-artifact rules if you ever adapt
+  this to Anthropic's Artifact publishing - this file targets a real
+  Spring Boot server instead, so plain CDN scripts are fine here).
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Frogger &mdash; Java Backend Edition</title>
+    <link rel="stylesheet" href="style.css" />
+    <!-- Three.js r128, pinned: game.js relies on the older (pre-r142) API
+         surface (e.g. no CapsuleGeometry needed, MathUtils.degToRad, plain
+         Geometry constructors) - bumping this version isn't a drop-in. -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+</head>
+<body>
+    <main class="wrap">
+        <h1>Frogger</h1>
+        <p class="subtitle">Java (Spring Boot + WebSocket) backend &middot; Three.js 3D frontend</p>
+
+        <!-- All 5 elements below are read/written directly by game.js each
+             time a new state snapshot arrives from the server. -->
+        <div class="hud">
+            <div>Score: <span id="score">0</span></div>
+            <div>Level: <span id="level">1</span></div>
+            <div id="livesWrap">Lives: <span id="lives">3</span></div>
+            <div id="connStatus" class="conn-status">Connecting&hellip;</div>
+            <!-- Cycles TOP -> FPV -> BEHIND -> TOP; see game.js's viewMode. -->
+            <button id="viewToggleBtn" class="view-toggle">View: Top-down</button>
+        </div>
+
+        <div class="canvas-wrap">
+            <!-- Fixed 800x1000 internal resolution matches the server's game-space
+                 board size 1:1; CSS scales it to fit the screen (see style.css). -->
+            <canvas id="board" width="800" height="1000"></canvas>
+            <!-- Briefly shown/hidden by game.js for the "+1" / "+1 Life" toast. -->
+            <div id="rewardToast" class="reward-toast"></div>
+            <!-- Shown only when the server reports status "GAME_OVER". -->
+            <div id="overlay" class="overlay hidden">
+                <div id="overlayMessage">Game Over</div>
+                <button id="restartBtn">Restart</button>
+            </div>
+        </div>
+
+        <p class="controls-hint">Use &uarr; &darr; &larr; &rarr; to move, or the buttons below. Cross the river on the logs, avoid cars and buses.</p>
+
+        <!-- On-screen D-pad: works via click (desktop/mouse) or touchstart
+             (mobile) - see game.js's input handlers. Always visible (not
+             just on small screens) so it also works for mouse users who
+             don't want to reach for arrow keys. -->
+        <div class="dpad" aria-label="Move controls">
+            <button class="dpad-btn dpad-up" data-direction="UP" aria-label="Up">&uarr;</button>
+            <div class="dpad-row">
+                <button class="dpad-btn dpad-left" data-direction="LEFT" aria-label="Left">&larr;</button>
+                <button class="dpad-btn dpad-down" data-direction="DOWN" aria-label="Down">&darr;</button>
+                <button class="dpad-btn dpad-right" data-direction="RIGHT" aria-label="Right">&rarr;</button>
+            </div>
+        </div>
+    </main>
+
+    <script src="game.js"></script>
+</body>
+</html>
